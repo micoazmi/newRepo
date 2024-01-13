@@ -35,10 +35,6 @@ export default function Card({ data }: { data: Product }) {
     }
   };
 
-  const handleNavigation = (id: string) => {
-    router.push(`/products/${id}`);
-  };
-
   return (
     <>
       <div className="max-w-sm rounded overflow-hidden shadow-lg ml-5">
@@ -53,10 +49,7 @@ export default function Card({ data }: { data: Product }) {
         </div>
         <div className="px-6 py-4 flex gap-4">
           <div>
-            <button
-              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-              onClick={() => handleNavigation(data._id)}
-            >
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               Detail
             </button>
           </div>
