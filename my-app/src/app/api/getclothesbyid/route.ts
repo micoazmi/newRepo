@@ -1,8 +1,7 @@
 import ClothesModel from "@/db/models/clothes";
 import { NextResponse } from "next/server";
-import { NextApiRequest, NextApiResponse } from 'next';
 
-export async function GET(req: NextApiRequest, res: NextApiResponse) {
+export async function GET(req: Request) {
   try {
     const searchParams = new URLSearchParams(req?.url);
     const idWithNewline = searchParams.get('http://localhost:3000/api/getclothesbyid?id');

@@ -11,31 +11,13 @@ interface ResponseData {
   data: Product[];
   // other properties if any
 }
-// async function getData() {
-//   const response = await fetch("http://localhost:3000/api/clothes", {
-//     method: "GET", // or 'PUT'
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
-//   const result = (await response.json()) as ResponseData;
-//   return result;
-// }
-
-async function getData(searchQuery?: string) {
-  const apiUrl = searchQuery
-    ? `http://localhost:3000/api/clothesquery?search=${encodeURIComponent(
-        searchQuery
-      )}`
-    : "http://localhost:3000/api/clothes";
-
-  const response = await fetch(apiUrl, {
-    method: "GET",
+async function getData() {
+  const response = await fetch("http://localhost:3000/api/clothes", {
+    method: "GET", // or 'PUT'
     headers: {
       "Content-Type": "application/json",
     },
   });
-
   const result = (await response.json()) as ResponseData;
   return result;
 }
