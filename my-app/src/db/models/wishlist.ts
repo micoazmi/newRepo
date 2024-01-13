@@ -1,6 +1,5 @@
 import { ObjectId } from "mongodb";
 import { getCollection } from "../config";
-import { log } from "blitz";
 
 export default class WishlistModel {
   static getCollectionModel() {
