@@ -1,13 +1,13 @@
 "use client";
 import { redirect, useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+async function handleLogout(router: ReturnType<typeof useRouter>) {
+  Cookies.remove("Authorization");
+  router.push("/login");
+}
 
 export default function Navbar() {
   const router = useRouter();
-  async function handleLogout() {
-    Cookies.remove("Authorization");
-    router.push("/login");
-  }
 
   return (
     <>
@@ -91,10 +91,11 @@ export default function Navbar() {
                   >
                     Wishlist
                   </a>
-                  <form action={handleLogout}>
+                  <form>
                     <button
                       type="submit"
                       className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                      onClick={() => handleLogout(router)}
                     >
                       Logout
                     </button>
